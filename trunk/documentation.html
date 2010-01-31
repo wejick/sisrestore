@@ -29,6 +29,9 @@ modification or not.</p>
 Remember to run it as root user.</p>
     <pre class="EXAMPLE">example:
 	#sh ./setup.sh install</pre>
+    <p>If you use system which use BSD style init like freeBSD, slackware linux etc you have to use additional bsd option to install it and set bsdmod's value in sisrestore.conf from 0 to 1 .</p>
+    <pre class="EXAMPLE">example:
+	#sh ./setup.sh install bsd</pre>
     <blockquote class="NOTE">SistemRestore is automatically enabled when you install it.</blockquote>
     </div>
    <div class="SECT2">
@@ -106,7 +109,7 @@ There are two archive mode :</p>
    </div>
    <div class="SECT2">
     <h2><a id="file" name="SRFILE">6. Included file</a></h2>
-    <p>File-file yang disertakan</p>
+    <p>Files included</p>
     <table>
      <tr><td class="FILENAME">/usr/sbin/SistemRestore.sh</td><td>Main Script</td>
      <tr><td class="FILENAME">/usr/sbin/sisrestore</td><td>Link to main script</td>
@@ -116,6 +119,8 @@ There are two archive mode :</p>
      <tr><td class="FILENAME">/usr/share/kompudini/sr/documentation.html</td><td>HTML Documentation File</td>
      <tr><td class="FILENAME">/usr/share/kompudini/sr/handbook.css</td><td>Style for HTML Documentation File</td>
      <tr><td class="FILENAME">/usr/share/applications/sr.desktop</td><td>Shortcut for xsr</td>
+     <tr><td class="FILENAME">/usr/share/applications/setup.sh</td><td>Setup file</td>
+     <tr><td class="FILENAME">/usr/share/applications/sisrsetore.sh</td><td>Standard configuration</td>     
      <tr><td class="FILENAME">/etc/init.d/sisrestore</td><td>Main init script</td>
      <tr><td class="FILENAME">/etc/rcS.d/S38sisrestore</td><td>WMode 2 init script</td>
      <tr><td class="FILENAME">/etc/rc0.d/S01sisrestore</td><td>WMode 1 init script</td>
@@ -133,6 +138,7 @@ There are two archive mode :</p>
      <li><p>It have messy workflow</p></li>
      <li><p>The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome environment). 
      If you use another tool edit the sr.desktop manually or make new shortcut to /usr/sbin/xsr with kdesu or etc.</p></li>
+     <li><p>The BSD Mode can't diferentiat work mode 1 and 2. However it will do its job when booting and halt.</p></li>
     </ol>
    </div>
    </div>

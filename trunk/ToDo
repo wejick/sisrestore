@@ -12,13 +12,13 @@
 10. Improve setup routine (For 1.0 Version)				 [done]		01/12/2010 
 11. Tested in general/mayor linux distribution (For 1.0 Version)
 13. Think about use case at internet kiosk
-14. Port the GUI frontent to GTKdialog					 [Bad idea]
-15. Better implementation of exit status on this tool
+14. OSOL compatibility
+15. BSD compatibility							 [not tested]	01/31/2010 [welcome february]
 16. Improve name consistency (include file name effectiveness)
 17. Improve the effectiveness of script 
 18. GUI Configuration editor
 19. Backup tagging
-20. BSD compatibility
-21. OSOL compatibility
+20. Better implementation of exit status on this tool
+21. Port the GUI frontent to GTKdialog					 [Bad idea]
 22. Multiple backup
-23. Pulish to googlecode                                                 [done]
+23. Publish to googlecode                                                [done]24. Make instalation for bsd mode more simple

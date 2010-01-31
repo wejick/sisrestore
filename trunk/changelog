@@ -29,4 +29,8 @@
 0.9.2	improve log
 	improve setup routine
 	this is may be our last release for 0.x version ;-)
-	[1/12/20010]
+	[1/12/2010]
+0.9.3	bsd init style compatibility [finally] ;)
+	improve setup routine
+	fix return error bug
+	[1/31/2010]
