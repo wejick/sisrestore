@@ -12,7 +12,7 @@
 # . /etc/sisrestore.conf
 DESC="Make deepfreezed like system"
 NAME=sisrestore
-SCRIPTNAME=/etc/init.d/$NAME
+SCRIPTNAME=$INITPATH/$NAME
 
 . /usr/sbin/SistemRestore.sh
 

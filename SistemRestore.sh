@@ -99,7 +99,7 @@ elif [ "$1" = "disable" ]; then
 	rm -rf $srpath/kodinbak.ta*
 	ls -l $srpath | grep kodinbak
 	echo "DISABLED" > $status_file
-	chmod -x /etc/init.d/sisrestore
+	chmod -x /$INITPATH/sisrestore
 	return 0
 elif [ "$1" = "reload" ]; then
 	sh /usr/share/kompudini/sr/srsetinit.sh
