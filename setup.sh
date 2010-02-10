@@ -17,10 +17,11 @@ fi
 if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 	if [ "$2" = "bsd" ] && [ "$bsdmod" -eq 1 ]; then
 		cp ./sisrestore /etc/rc.d/
-		chmod 744 /etc/rc.d/sisrestore
+		echo "/etc/rc.d/sisrestore start" >> /etc/rc.d/rc.local
+		chmod 774 /etc/rc.d/sisrestore
 		echo "bsd mod"
 		stat2=0
-	elif [ "$2" = "" ]; then
+	elif [ "$2" = "" ] && [ "$bsdmod" -eq 0 ]; then
 		echo "sysV mod"
 		cp ./sisrestore /etc/init.d/
 		chmod 744 /etc/init.d/sisrestore
@@ -93,6 +94,12 @@ elif [ "$1" = "uninstall" ]; then
 	rm -rfv /etc/sisrestore.conf
 	rm -rfv /usr/share/applications/sr.desktop
 	rm -rfv /home/*/Desktop/sr.desktop
+	#for bsd mode
+	touch /etc/rc.d/rc.local.temp
+	sed 's/\/etc\/rc.d\/sisrestore\ start/ /g' /etc/rc.d/rc.local > /etc/rc.d/rc.local.temp
+	rm /etc/rc.d/rc.local
+	mv /etc/rc.d/rc.local.temp /etc/rc.d/rc.local
+	#
 	echo "Uninstall Finish"
 else
 	echo "option : install | uninstall"

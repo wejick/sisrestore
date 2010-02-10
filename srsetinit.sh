@@ -41,18 +41,18 @@ if [ $bsdmod -eq 0 ]; then
 		echo "$(date +%F===%H:%m:%S) Operation failed. See documentation. Init script setup failure" >> $log_file
 		echo "Operation failed. See documentation. Init script setup failure"
 	fi
-elif [ $bsdmod -q 1 ]; then
-	if [ $wmode -eq 1 ]; then
-		if [ -x /etc/rc.d/sisrestore ]; then
-			chmod 744 /etc/rc.d/sisrestore
-		fi
-	elif [ $wmode -eq 2 ]; then
-		if [ -x /etc/rc.d/sisrestore ]; then
-			chmod 744 /etc/rc.d/sisrestore
+elif [ $bsdmod -eq 1 ]; then
+	if [ $wmode -eq 1 ] || [ $wmode -eq 2 ]; then
+		if [ -f $INITPATH/sisrestore ]; then
+			chmod 774 $INITPATH/sisrestore
+		else
+			echo "$INITPATH/sisrestore not exist"
 		fi
 	elif [ $wmode -eq 3 ]; then
-		if [ -x /etc/rc.d/sisrestore ]; then
-			chmod 644 /etc/rc.d/sisrestore
+		if [ -f $INITPATH/sisrestore ]; then
+			chmod 644 $INITPATH/sisrestore
+		else
+			echo "$INITPATH/sisrestore not exist"		
 		fi
 	else
 		echo "$(date +%F===%H:%m:%S) Operation failed. See documentation. Init script setup failure" >> $log_file

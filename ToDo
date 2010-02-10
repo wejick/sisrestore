@@ -21,4 +21,6 @@
 20. Better implementation of exit status on this tool
 21. Port the GUI frontent to GTKdialog					 [Bad idea]
 22. Multiple backup
-23. Publish to googlecode                                                [done]24. Make instalation for bsd mode more simple
+23. Publish to googlecode                                                [done]
+24. Make instalation for bsd mode more simple
+25. Use better solution for srsetinit.sh file finding method

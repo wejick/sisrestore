@@ -16,6 +16,11 @@ Remember to run it as root user.
 	example:
 	#sh ./setup.sh install
 
+If you use system which use BSD style init like freeBSD, slackware linux etc you have to use additional bsd option to install it and set bsdmod's value in sisrestore.conf from 0 to 1 .
+
+	example:
+	#sh ./setup.sh install bsd
+
 SistemRestore is automatically enabled when you install it.
 
 ||  How it work  ||
@@ -125,9 +130,9 @@ File-file yang disertakan
 
 1. It have messy workflow
 2. The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome environment). If you use another tool edit the sr.desktop manually or make new shortcut to /usr/sbin/xsr with kdesu or etc.
-
+3. The BSD Mode can't diferentiat work mode 1 and 2. However it will do its job when booting and halt.
 Copyright @2010 Gian Giovani
 email wejick at gmail dot com
 website wejick.wordpress.com
 affiliate wartalinux.net 
-License GPL
+License GPL 2

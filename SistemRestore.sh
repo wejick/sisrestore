@@ -94,27 +94,21 @@ if [ "$1" = "enable" ]; then
 	ls -l $srpath | grep kodinbak
 	sh /usr/share/kompudini/sr/srsetinit.sh
 	stat_en
-	return 0
 elif [ "$1" = "disable" ]; then
 	rm -rf $srpath/kodinbak.ta*
 	ls -l $srpath | grep kodinbak
 	echo "DISABLED" > $status_file
 	chmod -x /$INITPATH/sisrestore
-	return 0
 elif [ "$1" = "reload" ]; then
 	sh /usr/share/kompudini/sr/srsetinit.sh
 	stat_en
-	return 0
 elif [ "$1" = "restore" ]; then
 	do_res
 	echo "Working"
 	sleep 3
 	echo "finnish"
-	return 0
 elif [ "$1" = "help" ]; then
 	cat /usr/share/kompudini/sr/srhelp
-	return 0
 else
 	echo "try help"
-	return 1
 fi
