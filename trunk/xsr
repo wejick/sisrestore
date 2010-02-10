@@ -26,7 +26,7 @@ fi
 
 
 #start drawing ;)
-xmessage -title "SistemRestore" -default about -buttons $stat:2,Restore:3,Configure:4,About:5,Cancel:6-center "
+xmessage -title "SistemRestore" -default about -buttons $stat:2,Restore:3,Configure:4,About:5,Exit:6-center "
 status		= $status
 work mode	= $wmode
 archive mode	= $amode
@@ -69,6 +69,7 @@ elif [ "$action" = 4 ]; then	#Configuration
 	editor=$( which gedit || which leafpad || which mousepad || which gnome-text-editor)
 	if [ -x "$editor" ]; then
 		$editor /etc/sisrestore.conf
+		/usr/sbin/sisrestore reload
 	else 
 		xmessage -title "SistemRestore" -center "Edit /etc/sisrestore.conf yourself"
 	fi
