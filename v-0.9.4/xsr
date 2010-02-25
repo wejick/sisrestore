@@ -1,0 +1,94 @@
+#! /bin/sh
+###Begin Info
+# Name : XSistemRestore
+# Required software : xmessage
+# Short-Description : X frontend for sistemrestore
+# Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
+# License : GPL
+### END Info
+
+# . /etc/sisrestore.conf
+. /usr/sbin/SistemRestore.sh
+
+#variable
+status=$(head -1 /var/kompudini/sr/status)
+if [ "$status" = "ENABLED" ]; then
+	stat="Disable"
+	en_dis(){
+		/usr/sbin/sisrestore disable
+	}
+else
+	stat="Enable"
+	en_dis(){
+		/usr/sbin/sisrestore enable
+	}
+fi
+
+
+#start drawing ;)
+xmessage -title "SistemRestore" -default about -buttons $stat:2,Restore:3,Configure:4,About:5,Exit:6-center "
+status		= $status
+work mode	= $wmode
+archive mode	= $amode
+
+What do you want to do?
+"
+action=$?
+
+if [ "$action" = 2 ]; then	#enable-disable
+	xmessage -title "SistemRestore" -default No -buttons Yes:0,No:1 -center "Are you sure to do it?"
+	do=$?
+	if [ "$do" = 0 ]; then
+		en_dis
+		sleep 2
+		xmessage -title "SistemRestore" -center "
+Finish   
+  "
+  		/usr/sbin/xsr
+	else
+		xmessage -title "SistemRestore" -center "  
+Aborted
+  "
+	fi
+elif [ "$action" = 3 ]; then	#Restore
+	xmessage -title "SistemRestore" -default No -buttons Yes:0,No:1 -center "Are you sure to restore?"
+	doit=$?
+	if [ "$doit" = 0 ]; then
+		do_res
+		sleep 2
+		xmessage -title "SistemRestore" -center "
+Finish   
+  "
+  		/usr/sbin/xsr
+	else
+		xmessage -title "SistemRestore" -center "  
+Aborted
+  "
+	fi
+elif [ "$action" = 4 ]; then	#Configuration
+	editor=$( which gnome-text-editor || which gedit || which leafpad || which mousepad)
+	if [ -x "$editor" ]; then
+		$editor /etc/sisrestore.conf
+		/usr/sbin/sisrestore reload
+	else 
+		xmessage -title "SistemRestore" -center "Edit /etc/sisrestore.conf yourself"
+	fi
+	xmessage -title "SistemRestore" -center "
+If you change target option or amode, 
+please disable and re enable to take effect."
+	/usr/sbin/xsr
+elif [ "$action" = 5 ]; then	#About
+	xmessage -title "SistemRestore" -center "
+SistemRestore
+Author Gian Giovani
+wejick.wordpress.com
+wartalinux.net
+wejick@gmail.com
+
+Feel free to contact me
+Copyright  2010 Gian Giovani
+"
+	/usr/sbin/xsr
+else
+	echo "canceled"
+fi
