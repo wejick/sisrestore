@@ -66,7 +66,7 @@ Aborted
   "
 	fi
 elif [ "$action" = 4 ]; then	#Configuration
-	editor=$( which gedit || which leafpad || which mousepad || which gnome-text-editor)
+	editor=$( which gnome-text-editor || which gedit || which leafpad || which mousepad)
 	if [ -x "$editor" ]; then
 		$editor /etc/sisrestore.conf
 		/usr/sbin/sisrestore reload
