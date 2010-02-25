@@ -1,0 +1,172 @@
+<html>
+ <head>
+  <link rel="STYLESHEET" type="text/css" href="./handbook.css" />
+  <title>SistemRestore Documentation</title>
+ </head>
+ <body class="SECT1" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#840084" alink="#0000FF">
+  <div class="NAVHEADER">
+   <table summary="Header table" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <th colspan="3" align="center">SistemRestore Documentation<br />simple handbook</th>
+    </tr>
+   </table>
+   <hr align="LEFT" width="100%" />
+  </div>
+  <div class="SECT1">
+   <h1 class="SECT1"><a id="Top" name="SR">SistemRestore</a></h1>
+   <i class="AUTHORGROUP"><span class="CONTRIB">Writed by</span> Gian Giovani.</i> 
+   <div class="SECT2">
+    <h2 class="SECT2"><a id="overview" name="SROVERVIEW">1. Oveview</a></h2>
+    <p>SistemRestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
+It developed specially for Kompudini but it can run on any linux or unix system compatible with small
+modification or not.</p>
+    <blockquote class="WARNING">Any impact to your system is your bussines</blockquote>
+   </div>
+   <div class="SECT2">
+    <h2><a id="install" name="SRINSTALL">2. Installing SistemRestore</a></h2>
+    <blockquote class="TIP">Recomended: Before install this script pack you must edit the configuration file.</blockquote>
+    <p>Installing this script is simple easy. Execute the setup.sh with "install" argument to install it and "uninstall" argument to uninstall it. 
+Remember to run it as root user.</p>
+    <pre class="EXAMPLE">example:
+	#sh ./setup.sh install</pre>
+    <p>If you use system which use BSD style init like freeBSD, slackware linux etc you have to use additional bsd option to install it and set bsdmod's value in sisrestore.conf from 0 to 1 .</p>
+    <pre class="EXAMPLE">example:
+	#sh ./setup.sh install bsd</pre>
+    <blockquote class="NOTE">SistemRestore is automatically enabled when you install it.</blockquote>
+    </div>
+   <div class="SECT2">
+    <h2><a id="howw" name="SRHOWW">3. How it work</a></h2>
+    <p>SR provide auto restore to specified directory and the effect is just like if you use deepfreeze in windows environment.
+SR will <i>"reset"</i> the specified directory to the same state like when you backup the directory. And you can choose when SR
+reset your directory, there are 3 choices. First is when system shutdown, second is when system started and last is on demand
+by clicking restore button at System Restore GUI Frontend.</p>
+    <p>Sistem restore mainly use tar to work but it utilize lzma to make compressed backup archive.
+SR work firstly backup the target with tar. When restore the backup SR use rm -rf to <b>**totally**</b> remove the
+target and restore the backup later. So dont forget to check your data target before you restore it.</p>
+   </div>
+   <div class="SECT2">
+    <h2><a id="howu" name="SRHOWU">4. How use it</a></h2>
+    <p>Usage of SistemRestore is very easy but until now i think not straigtforward ;).</p>
+    <div class="SECT3">
+     <h2><a id="howu1" name="SRHOWU1">4.1 Basic Usage</a></h2>
+     <p>After install it you can enable SR with this command:</p>
+     <pre class="EXAMPLE">#sisrestore enable</pre>
+     <p>With this command you enable sistemrestore to work. </p>
+     <p>If you want to disable SR it so easy too :</p>
+     <pre class="EXAMPLE">#sisrestore disable</pre>
+     <p>This command will deactive all sistemrestore init script and "delete" the backup file.</p>
+     <p>The SR will work based on wmode (work mode) value in configuration file. You can call the on demand restore function
+with this command :</p>
+     <pre class="EXAMPLE">#sisrestore restore</pre>
+     <p>Or you can use SR GUI frontend.</p>
+    <div class="SECT3">
+     <h2><a id="howu2" name="SRHOWU2"></a>4.2 Advance Usage</h2>
+     <p>There are some ugly rule for SR :</p>
+     <ol>
+      <li><p>After change the configuration you must run this command to take effect :</p>
+      <pre class="EXAMPLE">#sisrestore reload</pre>
+      <p>But if you configure via GUI frontend you dont need to do that.</li></p>
+      <li><p>If you change the target directory or archive mode  
+      You must disable and re-enable SR, so SR make new backup archive.</p></li>
+     </ol>
+    </div>
+   </div>
+   <div class="SECT2">
+    <h2><a id="conf" name="SRCONF">5. Configuration</a></h2>
+    <p>You can configure sistemrestore in /etc/sisrestore.conf.</p>    
+    <blockquote class="IMPORTANT">
+     <ol>
+      <li>There are 3 point which determine SR to work.</li>
+      <li>Change the mode and target only. Dont touch the other line if you dont know what you do!</li>
+    </blockquote>
+    <ol>
+     <li><b>Work mode (wmode) </b>
+      <p>Work mode mean when the SR restore backup file.<br />
+There are three work mode :</p>
+      <ol>
+       <li><i>"Work at end"</i> it means SR restore the backup file when you shutdown your computer.</li>
+       <li><i>"Work at begin"</li> it means SR restore the backup file when you start your computer.</li>
+       <li><i>"Work on demand"</li> it means SR restore the backup file when you ask SR to restore your archive.</li>
+      </ol>
+      <p>By default SR use wmode 3</p>
+      <p>Set the value of wmode at configuration file with the work mode number. Example for work at begin mode (mode 2) :<p>
+      <pre class="EXAMPLE">wmode=2</pre>
+     </li>
+     <li><b>Action mode (amode)</b>
+      <p>Archive Mode determine the backup file type.<br />
+There are two archive mode :</p>
+      <ol>
+       <li>Raw TAR for speed but bloat in size.</li>
+       <li>LZMA for balance in speed and good in size but long compress time.</li>
+      </ol>
+      <p>By default SR use amode 1</p>
+      <p>Set the value of amode at configuration file with the work mode number. Example for Raw Tar archive backup type (mode 1) :<p>
+      <pre class="EXAMPLE">amode=1</pre>
+     </li>
+     <li><b>Target</b>
+      <p>Specify your target directory. Be carefull.<p>
+    </ol>
+   </div>
+   <div class="SECT2">
+    <h2><a id="file" name="SRFILE">6. Included file</a></h2>
+    <p>Files included</p>
+    <table>
+     <tr><td class="FILENAME">/usr/sbin/SistemRestore.sh</td><td>Main Script</td>
+     <tr><td class="FILENAME">/usr/sbin/sisrestore</td><td>Link to main script</td>
+     <tr><td class="FILENAME">/usr/sbin/xsr</td><td>GUI frontend</td>
+     <tr><td class="FILENAME">/usr/share/kompudini/sr</td><td>Place for misc thing</td>
+     <tr><td class="FILENAME">/usr/share/kompudini/sr/setinit.sh</td><td>Script to prepare initscript</td>
+     <tr><td class="FILENAME">/usr/share/kompudini/sr/documentation.html</td><td>HTML Documentation File</td>
+     <tr><td class="FILENAME">/usr/share/kompudini/sr/handbook.css</td><td>Style for HTML Documentation File</td>
+     <tr><td class="FILENAME">/usr/share/applications/sr.desktop</td><td>Shortcut for xsr</td>
+     <tr><td class="FILENAME">/usr/share/applications/setup.sh</td><td>Setup file</td>
+     <tr><td class="FILENAME">/usr/share/applications/sisrsetore.sh</td><td>Standard configuration</td>     
+     <tr><td class="FILENAME">/etc/init.d/sisrestore</td><td>Main init script</td>
+     <tr><td class="FILENAME">/etc/rcS.d/S38sisrestore</td><td>WMode 2 init script</td>
+     <tr><td class="FILENAME">/etc/rc0.d/S01sisrestore</td><td>WMode 1 init script</td>
+     <tr><td class="FILENAME">/var/kompudini/sr/</td><td>SR directory</td>
+     <tr><td class="FILENAME">/var/kompudini/sr/sisrestore.log</td><td>Log File</td>
+     <tr><td class="FILENAME">/var/kompudini/sr/status</td><td>Status File</td>
+     <tr><td class="FILENAME">/usr/share/kompudini/sr/srhelp</td><td>Help File</td>
+     <tr><td class="FILENAME">/etc/sisrestore.conf</td><td>Configuration File</td>
+    </table>
+   </div>
+   <div class="SECT2">
+    <h2><a id="bug" name="SRBUG">7. Bug</a></h2>
+    <p>Some known bug</p>
+    <ol>
+     <li><p>It have messy workflow</p></li>
+     <li><p>The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome environment). 
+     If you use another tool edit the sr.desktop manually or make new shortcut to /usr/sbin/xsr with kdesu or etc.</p></li>
+     <li><p>The BSD Mode can't diferentiat work mode 1 and 2. However it will do its job when booting and halt.</p></li>
+    </ol>
+   </div>
+   </div>
+   <div class="SECT2">
+   <h2><a id="about" name="SRAB">8. About</a></h2>
+   <p>Copyright @2010 Gian Giovani<br />
+email wejick at gmail dot com<br />
+website <a href="http://wejick.wordpress.com">wejick.wordpress.com</a><br />
+affiliate <a href="http://wartalinux.net">wartalinux.net</a><br />
+License GPL<br /></p>
+   </div>
+   	
+   </div>
+  </div>
+  <div class="NAVFOOTER">
+   <hr align="LEFT" width="100%" />
+   <table summary="Footer navigation table" width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td></td>
+     <td width="34%" align="center" valign="top"><a href="documentation.html" accesskey="H">Top</a></td>
+     <td></td>
+    </tr>
+   </table>
+  </div>
+
+  <p align="center"><small>For questions about SistemRestore, Go to 
+   <a href="http://wartalinux.net">wartalinux.net</a>  &#60;<a href="mailto:wejick@gmail.com">wejick@gmail.com</a>&#62;.<br />
+  </p>
+
+ </body>
+</html>

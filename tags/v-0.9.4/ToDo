@@ -1,0 +1,26 @@
+1. Function to provide ondemand restore					 [done]
+2. Disable restore when booting option (so above can optimally employed) [done]		12/15/2009
+3. Configuration load mechanism						 [done]		12/15/2009
+4. Restore on demand							 [done]		12/15/2009
+5. Improve status file							 [partial done]	12/15/2009
+6. Improve init script (sisrestore)
+	inspect which faster [file test,string check (via cat)]	 	 [done]		12/17/2009 [test is better]
+	improve xsr							 [partial done] 1/2/2010 [happy new year!]
+7. Centralized GUI							 [done]		12/20/2009
+8. Improve documentation						 [Done]
+9. Log is ugly and useless (For 1.0 Version)				 [done]		01/12/2010
+10. Improve setup routine (For 1.0 Version)				 [done]		01/12/2010 
+11. Tested in general/mayor linux distribution (For 1.0 Version)
+13. Think about use case at internet kiosk
+14. OSOL compatibility
+15. BSD compatibility							 [not tested]	01/31/2010 [welcome february]
+16. Improve name consistency (include file name effectiveness)
+17. Improve the effectiveness of script 
+18. GUI Configuration editor
+19. Backup tagging
+20. Better implementation of exit status on this tool
+21. Port the GUI frontent to GTKdialog					 [Bad idea]
+22. Multiple backup
+23. Publish to googlecode                                                [done]
+24. Make instalation for bsd mode more simple
+25. Use better solution for srsetinit.sh file finding method
