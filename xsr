@@ -1,8 +1,8 @@
 #! /bin/sh
 ###Begin Info
-# Name : XSistemRestore
+# Name : XSisRestore
 # Required software : xmessage
-# Short-Description : X frontend for sistemrestore
+# Short-Description : X frontend for sisrestore
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
 # License : GPL
 ### END Info
@@ -26,7 +26,7 @@ fi
 
 
 #start drawing ;)
-xmessage -title "SistemRestore" -default about -buttons $stat:2,Restore:3,Configure:4,About:5,Exit:6-center "
+xmessage -title "Sisrestore" -default about -buttons $stat:2,Restore:3,Configure:4,About:5,Exit:6-center "
 status		= $status
 work mode	= $wmode
 archive mode	= $amode
@@ -36,32 +36,32 @@ What do you want to do?
 action=$?
 
 if [ "$action" = 2 ]; then	#enable-disable
-	xmessage -title "SistemRestore" -default No -buttons Yes:0,No:1 -center "Are you sure to do it?"
+	xmessage -title "Sisrestore" -default No -buttons Yes:0,No:1 -center "Are you sure to do it?"
 	do=$?
 	if [ "$do" = 0 ]; then
 		en_dis
 		sleep 2
-		xmessage -title "SistemRestore" -center "
+		xmessage -title "Sisrestore" -center "
 Finish   
   "
   		/usr/sbin/xsr
 	else
-		xmessage -title "SistemRestore" -center "  
+		xmessage -title "Sisrestore" -center "  
 Aborted
   "
 	fi
 elif [ "$action" = 3 ]; then	#Restore
-	xmessage -title "SistemRestore" -default No -buttons Yes:0,No:1 -center "Are you sure to restore?"
+	xmessage -title "Sisrestore" -default No -buttons Yes:0,No:1 -center "Are you sure to restore?"
 	doit=$?
 	if [ "$doit" = 0 ]; then
 		do_res
 		sleep 2
-		xmessage -title "SistemRestore" -center "
+		xmessage -title "Sisrestore" -center "
 Finish   
   "
   		/usr/sbin/xsr
 	else
-		xmessage -title "SistemRestore" -center "  
+		xmessage -title "Sisrestore" -center "  
 Aborted
   "
 	fi
@@ -71,14 +71,14 @@ elif [ "$action" = 4 ]; then	#Configuration
 		$editor /etc/sisrestore.conf
 		/usr/sbin/sisrestore reload
 	else 
-		xmessage -title "SistemRestore" -center "Edit /etc/sisrestore.conf yourself"
+		xmessage -title "Sisrestore" -center "Edit /etc/sisrestore.conf yourself"
 	fi
-	xmessage -title "SistemRestore" -center "
+	xmessage -title "Sisrestore" -center "
 If you change target option or amode, 
 please disable and re enable to take effect."
 	/usr/sbin/xsr
 elif [ "$action" = 5 ]; then	#About
-	xmessage -title "SistemRestore" -center "
+	xmessage -title "Sisrestore" -center "
 SistemRestore
 Author Gian Giovani
 wejick.wordpress.com

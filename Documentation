@@ -1,12 +1,12 @@
-|||  SistemRestore  |||
+|||  Sisrestore  |||
 
 ||  Overview  |
-SistemRestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
+Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
 It developed specially for Kompudini but it can run on any linux or unix system compatible with small
 modification or not.
 **Any impact to your system is your bussines**
 
-||  Installing SistemRestore  ||
+||  Installing Sisrestore  ||
 
 *Recomended* Before install this script pack you must edit the configuration file.
 
@@ -21,7 +21,7 @@ If you use system which use BSD style init like freeBSD, slackware linux etc you
 	example:
 	#sh ./setup.sh install bsd
 
-SistemRestore is automatically enabled when you install it.
+Sisrestore is automatically enabled when you install it.
 
 ||  How it work  ||
 
@@ -42,13 +42,13 @@ After install it you can enable SR with this command:
 
 	#sisrestore enable
  
-With this command you enable sistemrestore to work. 
+With this command you enable Sisrestore to work. 
 
 If you want to disable SR it so easy too :
 	
 	#sisrestore disable
 
-This command will deactive all sistemrestore init script and "delete" the backup file.
+This command will deactive all Sisrestore init script and "delete" the backup file.
 
 The SR will work based on wmode (work mode) value in configuration file. You can call the on demand restore function
 with this command :
@@ -68,7 +68,7 @@ There are some ugly rule for SR :
 
 ||  Configuration  ||
 
-You can configure sistemrestore in /etc/sisrestore.conf
+You can configure Sisrestore in /etc/sisrestore.conf
 
 There are 3 point which determine SR to work.
 
@@ -131,6 +131,7 @@ File-file yang disertakan
 1. It have messy workflow
 2. The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome environment). If you use another tool edit the sr.desktop manually or make new shortcut to /usr/sbin/xsr with kdesu or etc.
 3. The BSD Mode can't diferentiat work mode 1 and 2. However it will do its job when booting and halt.
+
 Copyright @2010 Gian Giovani
 email wejick at gmail dot com
 website wejick.wordpress.com

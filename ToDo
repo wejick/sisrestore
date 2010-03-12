@@ -24,3 +24,4 @@
 23. Publish to googlecode                                                [done]
 24. Make instalation for bsd mode more simple
 25. Use better solution for srsetinit.sh file finding method
+26. Md5sum cecksum functinality

@@ -6,7 +6,7 @@ if [ ! $(whoami) = "root" ]; then
 	exit
 fi
 
-if [ "$target" = "default" ]; then
+if [ ! -d "$target" ]; then
 	echo "Edit sisrestore.conf properly before install it"
 	echo ""
 	status=1
@@ -69,7 +69,7 @@ if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 		chmod 744 /usr/share/kompudini/sr/documentation.html
 		cp ./handbook.css /usr/share/kompudini/sr/
 		chmod 744 /usr/share/kompudini/sr/handbook.css
-		cp ./sisrestore.conf /usr/share/kompudini/sr/sisrestore.conf
+		cp ./sisrestore.conf /usr/share/kompudini/sr/
 		chmod 744 /usr/share/kompudini/sr/sisrestore.conf
 	
 		cp ./sisrestore.conf /etc/
@@ -78,7 +78,7 @@ if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 		chmod 777 /usr/share/applications/sr.desktop
 		ln -s /usr/share/applications/sr.desktop /home/*/Desktop
 		chmod 777 /home/*/Desktop/sr.desktop
-		echo "Enable SistemRestore .."
+		echo "Enable Sisrestore .."
 		sisrestore enable
 		echo "Install Finish"
 	fi

@@ -6,7 +6,6 @@
 # Default-Start:     0 S
 # Short-Description: provide sistemrestore action on init
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
-# License : GPL
 ### END INIT INFO
 
 # . /etc/sisrestore.conf

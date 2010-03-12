@@ -37,3 +37,6 @@
 0.9.4	fix bsd mode, because bsd mode not work at 0.9.3
 	change cancel -> exit in xsr
 	[10/02/2010]
+0.9.4.1	Improve setup script
+	Change Sistemrestore to Sisrestore
+	[12/03/2010]
