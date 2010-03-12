@@ -1,20 +1,12 @@
 #! /bin/sh
 ###Begin Info
-# Name : SistemRestore
+# Name : Sisrestore
 # Required software : tar, lzma
 # Short-Description : Make deepfreezed like system
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
 # License : GPL
 ### END Info
 
-# There are two work mode expected :
-# 1. Work at end (halt)
-# 2. Work at begin (boot)
-# 3. Work on demand
-# action is : remove specified directories and restore with backup file
-# There are two archive mode expected :
-# 1. Raw TAR for speed but bloat in size
-# 2. LZMA for balance in speed and good in size but long compress time
 PATH="/:$PATH"; export PATH
 
 . /etc/sisrestore.conf
