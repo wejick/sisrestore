@@ -36,9 +36,9 @@ if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 	fi
 	
 	if [ "$stat2" -eq 0 ]; then
-		cp ./SistemRestore.sh /usr/sbin/
-		chmod 744 /usr/sbin/SistemRestore.sh
-		ln -s /usr/sbin/SistemRestore.sh /usr/sbin/sisrestore
+		cp ./sisrestore.sh /usr/sbin/
+		chmod 744 /usr/sbin/sisrestore.sh
+		ln -s /usr/sbin/sisrestore.sh /usr/sbin/sisrestore
 		chmod 744 /usr/sbin/sisrestore
 		
 		cp ./xsr /usr/sbin
@@ -83,7 +83,7 @@ if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 		echo "Install Finish"
 	fi
 elif [ "$1" = "uninstall" ]; then
-	rm -rfv /usr/sbin/SistemRestore.sh
+	rm -rfv /usr/sbin/sisrestore.sh
 	rm -rfv /usr/sbin/sisrestore
 	rm -rfv /usr/sbin/xsr
 	rm -rfv $INITPATH/sisrestore

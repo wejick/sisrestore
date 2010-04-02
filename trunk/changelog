@@ -40,3 +40,5 @@
 0.9.4.1	Improve setup script
 	Change Sistemrestore to Sisrestore
 	[12/03/2010]
+0.9.5	md5sum checksum
+	[29/03/2010]

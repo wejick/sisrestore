@@ -3,7 +3,6 @@
 # Name : srsetinit
 # Short-Description : prepare the work mode of SR
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
-# License : GPL
 ### END Info
 
 . /etc/sisrestore.conf

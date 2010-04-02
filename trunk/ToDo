@@ -7,7 +7,7 @@
 	inspect which faster [file test,string check (via cat)]	 	 [done]		12/17/2009 [test is better]
 	improve xsr							 [partial done] 1/2/2010 [happy new year!]
 7. Centralized GUI							 [done]		12/20/2009
-8. Improve documentation						 [Done]
+8. Improve documentation						 [done]
 9. Log is ugly and useless (For 1.0 Version)				 [done]		01/12/2010
 10. Improve setup routine (For 1.0 Version)				 [done]		01/12/2010 
 11. Tested in general/mayor linux distribution (For 1.0 Version)
@@ -24,4 +24,4 @@
 23. Publish to googlecode                                                [done]
 24. Make instalation for bsd mode more simple
 25. Use better solution for srsetinit.sh file finding method
-26. Md5sum cecksum functinality
+26. Md5sum cecksum functinality						 [done]		03/29/2010

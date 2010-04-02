@@ -1,10 +1,10 @@
 #! /bin/sh
 
 ### BEGIN INIT INFO
-# Provides:          SistemRestore
+# Provides:          Sisrestore
 # Required-Start:     $local_fs
 # Default-Start:     0 S
-# Short-Description: provide sistemrestore action on init
+# Short-Description: provide sisrestore action on init
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
 ### END INIT INFO
 
@@ -13,7 +13,7 @@ DESC="Make deepfreezed like system"
 NAME=sisrestore
 SCRIPTNAME=$INITPATH/$NAME
 
-. /usr/sbin/SistemRestore.sh
+. /usr/sbin/sisrestore.sh
 
 do_start()	{
 	if [ -r $srpath/kodinbak.tar ] || [ -r $srpath/kodinbak.tar.lzma ]; then
