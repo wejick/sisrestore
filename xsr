@@ -4,7 +4,6 @@
 # Required software : xmessage
 # Short-Description : X frontend for sisrestore
 # Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
-# License : GPL
 ### END Info
 
 # . /etc/sisrestore.conf
@@ -63,7 +62,8 @@ Finish
 	else
 		xmessage -title "Sisrestore" -center "  
 Aborted
-  "
+
+  		"/usr/sbin/xsr  		
 	fi
 elif [ "$action" = 4 ]; then	#Configuration
 	editor=$( which gnome-text-editor || which gedit || which leafpad || which mousepad)

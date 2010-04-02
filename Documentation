@@ -115,6 +115,7 @@ File-file yang disertakan
 -/etc/rcS.d/S38sisrestore		WMode 2 init script
 -/etc/rc0.d/S01sisrestore		WMode 1 init script
 -/var/kompudini/sr/			SR directory
+-/var/kompudini/sr/checksum		md5sum file for backup
 -/var/kompudini/sr/documentation.html	HTML Documentation File
 -/var/kompudini/sr/handbook.css		Style for HTML Documentation File
 -/var/kompudini/sr/sisrestore.log	Log File
