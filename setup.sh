@@ -1,5 +1,26 @@
 #! /bin/sh
 . ./sisrestore.conf
+echo "setup.sh started"
+remove() {
+	rm -rfv /usr/sbin/sisrestore.sh
+	rm -rfv /usr/sbin/sisrestore
+	rm -rfv /usr/sbin/xsr
+	rm -rfv $INITPATH/sisrestore
+	rm -rfv /etc/rcS.d/S38sisrestore || rm -rf /etc/rcS.d/K38sisrestore
+	rm -rfv /etc/rc0.d/S01sisrestore || rm -rf /etc/rc0.d/K01sisrestore
+	rm -rfv /var/kompudini/sr
+	rm -rfv /usr/share/kompudini/sr
+	rm -rfv /etc/sisrestore.conf
+	rm -rfv /usr/share/applications/sr.desktop
+	rm -rfv /home/*/Desktop/sr.desktop
+	#for bsd mode
+	touch /etc/rc.d/rc.local.temp
+	sed 's/\/etc\/rc.d\/sisrestore\ start/ /g' /etc/rc.d/rc.local > /etc/rc.d/rc.local.temp
+	rm /etc/rc.d/rc.local
+	mv /etc/rc.d/rc.local.temp /etc/rc.d/rc.local
+	#
+	echo "Uninstall Finish"
+}
 
 if [ ! $(whoami) = "root" ]; then
 	echo "I need run as root account"
@@ -13,8 +34,9 @@ if [ ! -d "$target" ]; then
 else
 	status=0
 fi
-
-if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
+if [ "$1" = "gui" ]; then
+	sh -x ./guided.sh	
+elif [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 	if [ "$2" = "bsd" ] && [ "$bsdmod" -eq 1 ]; then
 		cp ./sisrestore /etc/rc.d/
 		echo "/etc/rc.d/sisrestore start" >> /etc/rc.d/rc.local
@@ -83,26 +105,10 @@ if [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 		echo "Install Finish"
 	fi
 elif [ "$1" = "uninstall" ]; then
-	rm -rfv /usr/sbin/sisrestore.sh
-	rm -rfv /usr/sbin/sisrestore
-	rm -rfv /usr/sbin/xsr
-	rm -rfv $INITPATH/sisrestore
-	rm -rfv /etc/rcS.d/S38sisrestore || rm -rf /etc/rcS.d/K38sisrestore
-	rm -rfv /etc/rc0.d/S01sisrestore || rm -rf /etc/rc0.d/K01sisrestore
-	rm -rfv /var/kompudini/sr
-	rm -rfv /usr/share/kompudini/sr
-	rm -rfv /etc/sisrestore.conf
-	rm -rfv /usr/share/applications/sr.desktop
-	rm -rfv /home/*/Desktop/sr.desktop
-	#for bsd mode
-	touch /etc/rc.d/rc.local.temp
-	sed 's/\/etc\/rc.d\/sisrestore\ start/ /g' /etc/rc.d/rc.local > /etc/rc.d/rc.local.temp
-	rm /etc/rc.d/rc.local
-	mv /etc/rc.d/rc.local.temp /etc/rc.d/rc.local
-	#
-	echo "Uninstall Finish"
+	remove
 else
-	echo "option : install | uninstall"
+	echo "option : gui | install | uninstall"
 	echo "  if you install in bsd init style system use bsd option"
+	echo "  use gui for Graphical installer"
 	echo "  example : sh setup.sh install bsd"
 fi

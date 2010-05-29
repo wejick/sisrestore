@@ -14,7 +14,7 @@
 13. Think about use case at internet kiosk
 14. OSOL compatibility
 15. BSD compatibility							 [not tested]	01/31/2010 [welcome february]
-16. Improve name consistency (include file name effectiveness)
+16. Improve  name consistency (include file name effectiveness)
 17. Improve the effectiveness of script 
 18. GUI Configuration editor
 19. Backup tagging
@@ -24,4 +24,4 @@
 23. Publish to googlecode                                                [done]
 24. Make instalation for bsd mode more simple
 25. Use better solution for srsetinit.sh file finding method
-26. Md5sum cecksum functinality						 [done]		03/29/2010
+26. Md5sum cecksum for backup						 [done]		03/29/201027. Gui Installer							 [done]		05/29/2010

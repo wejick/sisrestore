@@ -8,7 +8,7 @@ modification or not.
 
 ||  Installing Sisrestore  ||
 
-*Recomended* Before install this script pack you must edit the configuration file.
+*Recomended* Before install this script pack you must edit the configuration file. Or you can use gui installer without edit configuration file
 
 Installing this script is simple easy. Execute the setup.sh with "install" argument to install it and "uninstall" argument to uninstall it. 
 Remember to run it as root user.
@@ -21,13 +21,18 @@ If you use system which use BSD style init like freeBSD, slackware linux etc you
 	example:
 	#sh ./setup.sh install bsd
 
+Or if you use graphical environment, you can use gui based installer instead. Use "gui" option to do it.
+
+	example
+	#sh ./setup.sh gui
+	
 Sisrestore is automatically enabled when you install it.
 
 ||  How it work  ||
 
 SR provide auto restore to specified directory and the effect is just like if you use deepfreeze in windows environment.
-SR will "reset" the specified directory to the same state like when you backup the directory. And you can choose when SR
-reset your directory, there are 3 choices. First is when system shutdown, second is when system started and last is on demand
+SR will "reset" the specified directory to the same state like when you backup the directory.
+And you can choose when SR reset your directory, and there are 3 choices for it. First is when system shutdown, second is when system started and last is on demand
 by clicking restore button at System Restore GUI Frontend.
 
 Sistem restore mainly use tar to work but it utilize lzma to make compressed backup archive.

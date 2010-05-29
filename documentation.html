@@ -24,7 +24,7 @@ modification or not.</p>
    </div>
    <div class="SECT2">
     <h2><a id="install" name="SRINSTALL">2. Installing Sisrestore</a></h2>
-    <blockquote class="TIP">Recomended: Before install this script pack you must edit the configuration file.</blockquote>
+    <blockquote class="TIP">Recomended: Before install this script pack you must edit the configuration file. Or you can use gui installer without edit configuration file</blockquote>
     <p>Installing this script is simple easy. Execute the setup.sh with "install" argument to install it and "uninstall" argument to uninstall it. 
 Remember to run it as root user.</p>
     <pre class="EXAMPLE">example:
@@ -32,6 +32,10 @@ Remember to run it as root user.</p>
     <p>If you use system which use BSD style init like freeBSD, slackware linux etc you have to use additional bsd option to install it and set bsdmod's value in sisrestore.conf from 0 to 1 .</p>
     <pre class="EXAMPLE">example:
 	#sh ./setup.sh install bsd</pre>
+	<p>Or if you use graphical environment, you can use gui based installer instead. Use "gui" option to do it.</p>
+	<pre class="EXAMPLE">
+	example
+	#sh ./setup.sh gui</pre>
     <blockquote class="NOTE">Sisrestore is automatically enabled when you install it.</blockquote>
     </div>
    <div class="SECT2">
