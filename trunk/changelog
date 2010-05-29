@@ -42,3 +42,6 @@
 	[12/03/2010]
 0.9.5	md5sum checksum
 	[29/03/2010]
+0.9.6	code cleanup in setup.sh
+	add gui installer option in setup.sh
+	[29/05/2010]
