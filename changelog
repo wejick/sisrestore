@@ -45,3 +45,6 @@
 0.9.6	code cleanup in setup.sh
 	add gui installer option in setup.sh
 	[29/05/2010]
+0.9.6.1 fix guided.sh: give alert when zenity not found
+	add some documentation about GUI installer
+	[6/06/2010]

@@ -1,27 +1,36 @@
 |||  Sisrestore  |||
 
 ||  Overview  |
-Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
-It developed specially for Kompudini but it can run on any linux or unix system compatible with small
+Sisrestore or SR is a pack of shell script to provide a deepfreeze like 
+function in linux desktop.
+It developed specially for Kompudini but it can run on any linux or unix
+system compatible with small
 modification or not.
 **Any impact to your system is your bussines**
 
 ||  Installing Sisrestore  ||
 
-*Recomended* Before install this script pack you must edit the configuration file. Or you can use gui installer without edit configuration file
+*Recomended* Before install this script pack you must edit the configuration 
+file. Or you can use gui installer without edit configuration file
 
-Installing this script is simple easy. Execute the setup.sh with "install" argument to install it and "uninstall" argument to uninstall it. 
+Installing this script is simple easy. Execute the setup.sh with "install" 
+argument to install it and "uninstall" argument to uninstall it. 
 Remember to run it as root user.
 
 	example:
 	#sh ./setup.sh install
 
-If you use system which use BSD style init like freeBSD, slackware linux etc you have to use additional bsd option to install it and set bsdmod's value in sisrestore.conf from 0 to 1 .
+If you use system which use BSD style init like freeBSD, slackware linux 
+etc you have to use additional bsd option to install it and set bsdmod's 
+value in sisrestore.conf from 0 to 1 .
 
 	example:
 	#sh ./setup.sh install bsd
 
-Or if you use graphical environment, you can use gui based installer instead. Use "gui" option to do it.
+Or if you use graphical environment, you can use gui based installer instead. 
+Use "gui" option to do it.
+
+*Attention* GUI mode need zenity installed.
 
 	example
 	#sh ./setup.sh gui
@@ -30,14 +39,21 @@ Sisrestore is automatically enabled when you install it.
 
 ||  How it work  ||
 
-SR provide auto restore to specified directory and the effect is just like if you use deepfreeze in windows environment.
-SR will "reset" the specified directory to the same state like when you backup the directory.
-And you can choose when SR reset your directory, and there are 3 choices for it. First is when system shutdown, second is when system started and last is on demand
+SR provide auto restore to specified directory and the effect is just like 
+if you use deepfreeze in windows environment.
+SR will "reset" the specified directory to the same state like when you 
+backup the directory.
+And you can choose when SR reset your directory, and there are 3 choices
+for it. First is when system shutdown, second is when system started and
+last is on demand
 by clicking restore button at System Restore GUI Frontend.
 
-Sistem restore mainly use tar to work but it utilize lzma to make compressed backup archive.
-SR work firstly backup the target with tar. When restore the backup SR use rm -rf to "totally" remove the
-target and restore the backup later. So dont forget to check your data target before you restore it.
+Sistem restore mainly use tar to work but it utilize lzma to make compressed
+backup archive.
+SR work firstly backup the target with tar. When restore the backup SR use
+rm -rf to "totally" remove the
+target and restore the backup later. So dont forget to check your data
+target before you restore it.
 
 ||  How use it  ||
 
@@ -53,9 +69,11 @@ If you want to disable SR it so easy too :
 	
 	#sisrestore disable
 
-This command will deactive all Sisrestore init script and "delete" the backup file.
+This command will deactive all Sisrestore init script and "delete" the 
+backup file.
 
-The SR will work based on wmode (work mode) value in configuration file. You can call the on demand restore function
+The SR will work based on wmode (work mode) value in configuration file.
+You can call the on demand restore function
 with this command :
 
 	#sisrestore restore
@@ -69,7 +87,8 @@ There are some ugly rule for SR :
 
 	#sisrestore reload
 	
-2. But if you change the target directory or archive mode You must disable and re-enable SR, so SR make new backup archive.
+2. But if you change the target directory or archive mode You must disable
+and re-enable SR, so SR make new backup archive.
 
 ||  Configuration  ||
 
@@ -81,12 +100,16 @@ There are 3 point which determine SR to work.
 
 Work mode mean when the SR restore backup file.
 There are three work mode :
-1. "Work at end" it means SR restore the backup file when you shutdown your computer.
-2. "Work at begin" it means SR restore the backup file when you start your computer.
-3. "Work on demand" it means SR restore the backup file when you ask SR to restore your archive.
+1. "Work at end" it means SR restore the backup file when you shutdown your
+computer.
+2. "Work at begin" it means SR restore the backup file when you start your
+computer.
+3. "Work on demand" it means SR restore the backup file when you ask SR 
+to restore your archive.
 
 By default SR use wmode 3
-Set the value of wmode at configuration file with the work mode number. Example for work at begin mode (mode 2) :
+Set the value of wmode at configuration file with the work mode number. 
+Example for work at begin mode (mode 2) :
 
 wmode=2
 
@@ -98,7 +121,8 @@ There are two archive mode :
 2. LZMA for balance in speed and good in size but long compress time
 
 By default SR use amode 1
-Set the value of amode at configuration file with the work mode number. Example for Raw Tar archive backup type (mode 1) :
+Set the value of amode at configuration file with the work mode number.
+Example for Raw Tar archive backup type (mode 1) :
 
 amode=1
 
@@ -106,7 +130,8 @@ amode=1
 
 Specify your target. Be carefull.
 
-*Attention* Change the mode and target only. Dont touch the other line if you dont know what you do!
+*Attention* Change the mode and target only. Dont touch the other line 
+if you dont know what you do!
 
 ||  Included file ||
 File-file yang disertakan
@@ -135,8 +160,11 @@ File-file yang disertakan
 ||  BUG  ||
 
 1. It have messy workflow
-2. The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome environment). If you use another tool edit the sr.desktop manually or make new shortcut to /usr/sbin/xsr with kdesu or etc.
-3. The BSD Mode can't diferentiat work mode 1 and 2. However it will do its job when booting and halt.
+2. The shortcut to xsr (sr.desktop) only work with gksudo (for gtk/gnome
+   environment). If you use another tool edit the sr.desktop manually or
+   make new shortcut to /usr/sbin/xsr with kdesu or etc.
+3. The BSD Mode can't diferentiat work mode 1 and 2. However it will do 
+   its job when booting and halt.
 
 Copyright @2010 Gian Giovani
 email wejick at gmail dot com
