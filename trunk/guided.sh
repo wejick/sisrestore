@@ -1,6 +1,9 @@
 #for guided 
 which zenity
 if [ ! $? -eq 0 ]; then
+	xmessage -title "Sisrestore Install Wizard - Zenity not found" \
+	-center "Guided mode can't continue. Zenity not found, please refer to documentation"
+	echo "Guided mode can't continue. Zenity not found, please refer to documentation"
 	exit 1
 fi
 #Installation wizard
