@@ -13,7 +13,7 @@ DESC="Make deepfreezed like system"
 NAME=sisrestore
 SCRIPTNAME=$INITPATH/$NAME
 
-. /usr/sbin/sisrestore.sh
+. /usr/sbin/SistemRestore.sh
 
 do_start()	{
 	if [ -r $srpath/kodinbak.tar ] || [ -r $srpath/kodinbak.tar.lzma ]; then
