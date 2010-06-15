@@ -135,23 +135,24 @@ if you dont know what you do!
 
 ||  Included file ||
 File-file yang disertakan
--/usr/sbin/SistemRestore.sh		Main Script
--/usr/sbin/sisrestore			Link to main script
--/usr/sbin/xsr				GUI frontend
--/usr/share/kompudini/sr		Place for misc thing
--/usr/share/kompudini/sr/setinit.sh	Script to prepare initscript
--/usr/share/applications/sr.desktop	Shortcut for xsr
--/etc/init.d/sisrestore			Main init script
--/etc/rcS.d/S38sisrestore		WMode 2 init script
--/etc/rc0.d/S01sisrestore		WMode 1 init script
--/var/kompudini/sr/			SR directory
--/var/kompudini/sr/checksum		md5sum file for backup
+-/usr/sbin/SistemRestore.sh				Main Script
+-/usr/sbin/sisrestore					Link to main script
+-/usr/sbin/xsr							GUI frontend
+-/usr/share/kompudini/sr				Place for misc thing
+-/usr/share/kompudini/sr/setinit.sh		Script to prepare initscript
+-/usr/share/kompudini/sr/guided.sh		GUI configuration tool
+-/usr/share/applications/sr.desktop		Shortcut for xsr
+-/etc/init.d/sisrestore					Main init script
+-/etc/rcS.d/S38sisrestore				WMode 2 init script
+-/etc/rc0.d/S01sisrestore				WMode 1 init script
+-/var/kompudini/sr/						SR directory
+-/var/kompudini/sr/checksum				md5sum file for backup
 -/var/kompudini/sr/documentation.html	HTML Documentation File
--/var/kompudini/sr/handbook.css		Style for HTML Documentation File
--/var/kompudini/sr/sisrestore.log	Log File
--/var/kompudini/sr/status		Status File
--/usr/share/kompudini/sr/srhelp		Help File
--/etc/sisrestore.conf			Configuration File
+-/var/kompudini/sr/handbook.css			Style for HTML Documentation File
+-/var/kompudini/sr/sisrestore.log		Log File
+-/var/kompudini/sr/status				Status File
+-/usr/share/kompudini/sr/srhelp			Help File
+-/etc/sisrestore.conf					Configuration File
 
 ||  Trivia  ||
 

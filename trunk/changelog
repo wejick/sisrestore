@@ -47,4 +47,8 @@
 	[29/05/2010]
 0.9.6.1 fix guided.sh: give alert when zenity not found
 	add some documentation about GUI installer
-	[6/06/2010]
+	[06/06/2010]
+0.9.6.2	fix buggy guided.sh
+	fix another fool code
+	fix another filenaming confuseness
+	[15/06/2010]	
