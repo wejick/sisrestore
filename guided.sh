@@ -1,3 +1,11 @@
+#! /bin/sh
+###Begin Info
+# Name : guided
+# Required software : xmessage, zenity
+# Short-Description : X frontend configurator
+# Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
+### END Info
+
 #for guided 
 which zenity
 if [ ! $? -eq 0 ]; then
@@ -32,9 +40,9 @@ am() {
 		echo "back"
 		wm #back to wm()
 	else
-	amo=$(($temp-2))
-	echo $amo
-	bm #next to  bm()
+		amo=$(($temp-2))
+		echo $amo
+			bm #next to  bm()
 	fi
 	}
 	#Define BSD Mode
@@ -67,11 +75,28 @@ tgt() {
 	fi
 	}
 
-xmessage -title "Sisrestore Install Wizard" -buttons "Yes":2,"No":11 -center "Do you want to continue installation?"
+xmessage -title "Sisrestore Wizard" -buttons "Yes":2,"No":11 -center "Do you want to continue?"
 if [ $? -eq 2 ]; then
 	wm #call wm
 else 
 	exit 0
+fi
+
+if [ "$1" = "conf" ]; then
+	do_it_now() {
+		/usr/sbin/sisrestore reload
+		 }
+	configfile=/etc/sisrestore.conf
+elif [ $bmo -eq 1 ]; then
+	do_it_now() { 
+		sh -x ./setup.sh install bsd
+		 }
+	configfile=sisrestore.conf
+else
+	do_it_now() { 
+		sh -x ./setup.sh install
+		 }
+	configfile=sisrestore.conf
 fi
 
 echo "wmode="$wmo"
@@ -89,12 +114,7 @@ elif [ \$bsdmod -eq 1 ]; then
 	INITPATH=/etc/rc.d
 fi
 # END OF INITPATH DECLARATION
-" > ./sisrestore.conf
+" > $configfile
 
-#execute installer
-if [ $bmo -eq 1 ]; then
-	sh -x ./setup.sh install bsd
-else
-	sh -x ./setup.sh install
-fi
-
+#execute installer or reconfigure
+do_it_now

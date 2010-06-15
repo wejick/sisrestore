@@ -58,9 +58,9 @@ elif [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 	fi
 	
 	if [ "$stat2" -eq 0 ]; then
-		cp ./sisrestore.sh /usr/sbin/
-		chmod 744 /usr/sbin/sisrestore.sh
-		ln -s /usr/sbin/sisrestore.sh /usr/sbin/sisrestore
+		cp ./SistemRestore.sh /usr/sbin/
+		chmod 744 /usr/sbin/SistemRestore.sh
+		ln -s /usr/sbin/SistemRestore.sh /usr/sbin/sisrestore
 		chmod 744 /usr/sbin/sisrestore
 		
 		cp ./xsr /usr/sbin
@@ -81,6 +81,8 @@ elif [ "$1" = "install" ] && [ "$status" -eq 0 ]; then
 		chmod -R 755 /usr/share/kompudini
 		mkdir /usr/share/kompudini/sr
 		chmod -R 755 /usr/share/kompudini/sr
+		cp ./guided.sh /usr/share/kompudini/sr/
+		chmod 744 /usr/share/kompudini/sr/guided.sh
 		cp ./srsetinit.sh /usr/share/kompudini/sr/
 		chmod 744 /usr/share/kompudini/sr/srsetinit.sh
 		cp ./srhelp /usr/share/kompudini/sr/
