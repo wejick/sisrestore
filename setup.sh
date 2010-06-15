@@ -2,7 +2,7 @@
 . ./sisrestore.conf
 echo "setup.sh started"
 remove() {
-	rm -rfv /usr/sbin/sisrestore.sh
+	rm -rfv /usr/sbin/SistemRestore.sh
 	rm -rfv /usr/sbin/sisrestore
 	rm -rfv /usr/sbin/xsr
 	rm -rfv $INITPATH/sisrestore
