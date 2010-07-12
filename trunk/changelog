@@ -51,4 +51,5 @@
 0.9.6.2	fix buggy guided.sh
 	fix another fool code
 	fix another filenaming confuseness
+	fix sr.desktop category from other to system tool in gnome menu
 	[15/06/2010]	
