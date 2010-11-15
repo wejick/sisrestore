@@ -1,14 +1,63 @@
+#labels Featured
 Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
 
-= Introduction =
+= Overview =
 
 Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop. It developed specially for Kompudini but it can run on any linux or unix system compatible with small modification or not.
+
 *Any impact to your system is your bussines*
 
+= Installing Sisrestore =
 
-= Details =
+*Recomended* _Before install this script pack you must edit the configuration 
+file. Or you can use gui installer without edit configuration file_
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Installing this script is simple easy. Execute the setup.sh with "install" 
+argument to install it and "uninstall" argument to uninstall it. 
+Remember to run it as root (super user).
+
+{{{
+example:
+	#sh ./setup.sh install
+}}}
+
+Or if you use graphical environment, you can use gui based installer instead. 
+Use "gui" argument to do it.
+
+*Attention* _GUI mode need zenity and xmessages installed._
+
+{{{
+example:
+	#sh ./setup.sh gui
+}}}
+	
+Sisrestore is automatically enabled when you install it.
+
+= How It Works =
+
+== 1. Basic usage ==
+
+After install it you can enable SR with this command:
+
+{{{
+	#sisrestore enable
+}}}
+ 
+With this command you enable Sisrestore to work. 
+
+If you want to disable SR it so easy too :
+
+{{{	
+	#sisrestore disable
+}}}
+
+This command will deactive all Sisrestore init script and "delete" the backup file.
+
+The SR will work based on wmode (work mode) value in configuration file.
+You can call the on demand restore function with this command :
+
+{{{
+	#sisrestore restore
+}}}
+
+Or you can use SR GUI frontend.
