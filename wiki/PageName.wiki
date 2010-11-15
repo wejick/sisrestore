@@ -69,11 +69,50 @@ Or you can use SR GUI frontend.
 == 2. Advance usage ==
 
 There are some ugly rule for SR :
-# After change the configuration you must run this command :
+1. After change the configuration you must run this command :
 
-{{
+{{{
 	#sisrestore reload
-}}
+}}}
 	
-# But if you change the target directory or archive mode You must disable
-and re-enable SR, so SR make new backup archive.
+2. But if you change the target directory or archive mode You must disable and re-enable SR, so SR make new backup archive.
+
+= Configuration =
+
+You can configure Sisrestore in etc/sisrestore.conf
+
+There are 3 point which determine SR to work.
+
+== 1. Work mode ==
+
+Work mode mean when the SR restore backup file.
+There are three work mode :
+# "Work at end" it means SR restore the backup file when you shutdown your computer.
+# "Work at begin" it means SR restore the backup file when you start your computer.
+# "Work on demand" it means SR restore the backup file when you ask SR to restore your archive.
+
+By default SR use wmode 3
+Set the value of wmode at configuration file with the work mode number. 
+Example for work at begin mode (mode 2) :
+
+`wmode=2`
+
+== 2. Archive Mode ==
+
+Archive Mode determine the backup file type.
+There are two archive mode :
+# Raw TAR for speed but bloat in size
+# LZMA for balance in speed and good in size but long compress time
+
+By default SR use amode 1
+Set the value of amode at configuration file with the work mode number.
+Example for Raw Tar archive backup type (mode 1) :
+
+`amode=1`
+
+== 3. Target ==
+
+Specify your target. Be carefull.
+
+*Attention* _Change the mode and target only. Dont touch the other line 
+if you dont know what you do!_
