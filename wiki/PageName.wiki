@@ -1,0 +1,14 @@
+#Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
+
+= Introduction =
+
+Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop. It developed specially for Kompudini but it can run on any linux or unix system compatible with small modification or not.
+**Any impact to your system is your bussines**
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
