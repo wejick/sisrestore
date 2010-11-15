@@ -65,3 +65,15 @@ You can call the on demand restore function with this command :
 }}}
 
 Or you can use SR GUI frontend.
+
+== 2. Advance usage ==
+
+There are some ugly rule for SR :
+# After change the configuration you must run this command :
+
+{{
+	#sisrestore reload
+}}
+	
+# But if you change the target directory or archive mode You must disable
+and re-enable SR, so SR make new backup archive.
