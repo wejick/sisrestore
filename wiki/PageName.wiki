@@ -1,6 +1,4 @@
 #labels Featured
-Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop.
-
 = Overview =
 
 Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop. It developed specially for Kompudini but it can run on any linux or unix system compatible with small modification or not.
@@ -33,7 +31,13 @@ example:
 	
 Sisrestore is automatically enabled when you install it.
 
-= How It Works =
+= How it works =
+
+SR provide auto restore to specified directory and the effect is just like deepfreeze in windows environment. SR will "reset" the specified directory to the same state like when you backup the directory. You can choose when SR reset your directory, and there are 3 choices for it. First is when system shutdown, second is when system started and last is on demand by clicking restore button at System Restore GUI Frontend.
+
+Sisrestore mainly use tar to work but it utilize lzma to make compressed backup archive. SR work firstly backup the target with tar. When restore the backup SR use rm -rf to "totally" remove the target and restore the backup later. So dont forget to check your data target before you restore it.
+
+= How to use it =
 
 == 1. Basic usage ==
 
