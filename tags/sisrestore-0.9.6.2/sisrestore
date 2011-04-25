@@ -1,0 +1,43 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          Sisrestore
+# Required-Start:     $local_fs
+# Default-Start:     0 S
+# Short-Description: provide sisrestore action on init
+# Author / Copyright : Gian Giovani <wejick@gmail.com> wejick.wordpress.com
+### END INIT INFO
+
+# . /etc/sisrestore.conf
+DESC="Make deepfreezed like system"
+NAME=sisrestore
+SCRIPTNAME=$INITPATH/$NAME
+
+. /usr/sbin/SistemRestore.sh
+
+do_start()	{
+	if [ -r $srpath/kodinbak.tar ] || [ -r $srpath/kodinbak.tar.lzma ]; then
+		rm -rf $target
+	else 
+		echo "$(date +%l:%M:%S) You must create backup file before. See the documentation" >> $log_file
+	fi
+
+	rsarchive
+}
+
+status()	{
+	if [ -r $srpath/kodinbak.tar ] || [ -r $srpath/kodinbak.tar.lzma ]; then
+		echo "The backup file is exist"
+	else
+		echo "The backup file is not exist"
+	fi
+	cat $status_file
+}
+
+case "$1" in
+	start) do_start ;;
+	stop) do_start ;;
+	status) status ;;
+	*)	echo "Usage: $SCRIPTNAME {start|stop|status} | Caution Start And Stop have same action so be carefull" ;;
+esac
+
