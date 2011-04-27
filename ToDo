@@ -25,3 +25,4 @@
 24. Make instalation for bsd mode more simple
 25. Use better solution for srsetinit.sh file finding method
 26. Md5sum cecksum for backup						 [done]		03/29/201027. Gui Installer							 [done]		05/29/2010
+28. Windows compatibility

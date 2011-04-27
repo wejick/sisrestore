@@ -21,10 +21,11 @@ remove() {
 	#
 	echo "Uninstall Finish"
 }
-
-if [ ! $(whoami) = "root" ]; then
-	echo "I need run as root account"
-	exit
+if [ $(winmode) -eq 0 ]; then
+	if [ ! $(whoami) = "root" ]; then
+		echo "I need run as root account"
+		exit
+	fi
 fi
 
 if [ ! -d "$target" ]; then
