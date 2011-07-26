@@ -81,14 +81,13 @@ please disable and re enable to take effect."
 	/usr/sbin/xsr
 elif [ "$action" = 5 ]; then	#About
 	xmessage -title "Sisrestore" -center "
-SistemRestore
+Sisrestore
 Author Gian Giovani
 wejick.wordpress.com
-wartalinux.net
 wejick@gmail.com
 
 Feel free to contact me
-Copyright  2010 Gian Giovani
+Copyright  2010-2011 Gian Giovani
 "
 	/usr/sbin/xsr
 else
