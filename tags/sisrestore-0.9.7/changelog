@@ -1,0 +1,57 @@
+0.1 	initial idea
+0.2 	initial implementation
+0.3 	initial confussion
+0.4 	initial work implementation
+0.5 	not useless but not tested
+	[12/15/09]
+0.6 	on demand restore implemented
+	[12/15/09]
+0.7	improve status file
+	configuration load mechanism
+	documentation improvement
+	[12/15/09]
+0.8	new default option
+	change icon
+	move do_start function to main script with new name => do_res
+	main script "restore" option for on demand restore
+	[12/17/09]
+0.9	change /var/kompudini permission
+	include setup.sh to installation for easy uninstall at the future
+	centralized gui frontend
+	[12/20/2009]
+0.9.1	optimize script in xsr
+	fix bug while exit from wm in xsr
+	improve documentation
+	happy new year!!
+	[1/2/2010]
+	html documentation
+	[1/4/2010]
+0.9.2	improve log
+	improve setup routine
+	this is may be our last release for 0.x version ;-)
+	[1/12/2010]
+0.9.3	bsd init style compatibility [finally] ;)
+	improve setup routine
+	fix return error bug
+	[1/31/2010]
+0.9.4	fix bsd mode, because bsd mode not work at 0.9.3
+	change cancel -> exit in xsr
+	[10/02/2010]
+0.9.4.1	Improve setup script
+	Change Sistemrestore to Sisrestore
+	[12/03/2010]
+0.9.5	md5sum checksum
+	[29/03/2010]
+0.9.6	code cleanup in setup.sh
+	add gui installer option in setup.sh
+	[29/05/2010]
+0.9.6.1 fix guided.sh: give alert when zenity not found
+	add some documentation about GUI installer
+	[06/06/2010]
+0.9.6.2	fix buggy guided.sh
+	fix another fool code
+	fix another filenaming confuseness
+	fix sr.desktop category from other to system tool in gnome menu
+	[15/06/2010]	
+0.9.7	add root check at guided.sh
+	check compatibility to ubuntu 11.10
