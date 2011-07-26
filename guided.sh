@@ -14,6 +14,12 @@ if [ ! $? -eq 0 ]; then
 	echo "Guided mode can't continue. Zenity not found, please refer to documentation"
 	exit 1
 fi
+if [ ! $(whoami) = "root" ]; then
+	xmessage -title "Sisrestore Install Wizard - Run me as root" \
+        -center "Guided mode can't continue. please run me as root"
+        echo "I need run as root account"
+        exit
+fi
 #Installation wizard
 wm() {
 	#Define Wmode
