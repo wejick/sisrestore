@@ -54,3 +54,4 @@
 	fix sr.desktop category from other to system tool in gnome menu
 	[15/06/2010]	
 0.9.7	add root check at guided.sh
+	check compatibility to ubuntu 11.10
