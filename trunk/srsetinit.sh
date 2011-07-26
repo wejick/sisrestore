@@ -59,5 +59,5 @@ elif [ $bsdmod -eq 1 ]; then
 	fi
 
 else
-	echo >> "$(date +%F===%H:%m:%S) SR did not understand value of bsdmod" >> $log_file
+	echo >> "$(date +%F===%H:%m:%S) sisrestore did not understand value of bsdmod" >> $log_file
 fi
