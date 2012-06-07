@@ -120,7 +120,7 @@ if you dont know what you do!_
 == 4. Compatibility ==
 
 I've test Sisretore with some linux distro, it can run with :
-# Ubuntu from 10.04 - 12.04.
-# slackware from 12 above.
-# fedora 12 and above ( need xmessage ).
-# blankon from nanggar and above.
+#Ubuntu from 10.04 - 12.04.
+#Slackware from 12 above.
+#Fedora 12 and above ( need xmessage ).
+#Blankon from nanggar and above.
