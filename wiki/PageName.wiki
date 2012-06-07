@@ -116,3 +116,11 @@ Specify your target. Be carefull.
 
 *Attention* _Change the mode and target only. Dont touch the other line 
 if you dont know what you do!_
+
+== 4. Compatibility ==
+
+I've test Sisretore with some linux distro, it can run with :
+1. Ubuntu from 10.04 - 12.04.
+2. slackware from 12 above.
+3. fedora 12 and above ( need xmessage ).
+4. blankon from nanggar and above.
