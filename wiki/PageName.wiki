@@ -1,7 +1,7 @@
 #labels Featured
 = Overview =
 
-Sisrestore or SR is a pack of shell script to provide a deepfreeze like function in linux desktop. It developed specially for Kompudini but it can run on any linux or unix system compatible with small modification or not.
+Sisrestore is a pack of shell script to provide a deepfreeze like function in linux desktop. It developed specially for Kompudini but it can run on any linux or unix system compatible with small modification or not.
 
 *Any impact to your system is your bussines*
 
@@ -33,15 +33,15 @@ Sisrestore is automatically enabled when you install it.
 
 = How it works =
 
-SR provide auto restore to specified directory and the effect is just like deepfreeze in windows environment. SR will "reset" the specified directory to the same state like when you backup the directory. You can choose when SR reset your directory, and there are 3 choices for it. First is when system shutdown, second is when system started and last is on demand by clicking restore button at System Restore GUI Frontend.
+Sisrestore provide auto restore to specified directory and the effect is just like deepfreeze in windows environment. Sisrestore will "reset" the specified directory to the same state like when you backup the directory. You can choose when Sisrestore reset your directory, and there are 3 choices for it. First is when system shutdown, second is when system started and last is on demand by clicking restore button at System Restore GUI Frontend.
 
-Sisrestore mainly use tar to work but it utilize lzma to make compressed backup archive. SR work firstly backup the target with tar. When restore the backup SR use rm -rf to "totally" remove the target and restore the backup later. So dont forget to check your data target before you restore it.
+Sisrestore mainly use tar to work but it utilize lzma to make compressed backup archive. Sisrestore work firstly backup the target with tar. When restore the backup Sisrestore use rm -rf to "totally" remove the target and restore the backup later. So dont forget to check your data target before you restore it.
 
 = How to use it =
 
 == 1. Basic usage ==
 
-After install it you can enable SR with this command:
+After install it you can enable Sisrestore with this command line:
 
 {{{
 	#sisrestore enable
@@ -49,7 +49,7 @@ After install it you can enable SR with this command:
  
 With this command you enable Sisrestore to work. 
 
-If you want to disable SR it so easy too :
+If you want to disable Sisrestore it so easy too :
 
 {{{	
 	#sisrestore disable
@@ -57,41 +57,41 @@ If you want to disable SR it so easy too :
 
 This command will deactive all Sisrestore init script and "delete" the backup file.
 
-The SR will work based on wmode (work mode) value in configuration file.
+The Sisrestore will work based on wmode (work mode) value in configuration file.
 You can call the on demand restore function with this command :
 
 {{{
 	#sisrestore restore
 }}}
 
-Or you can use SR GUI frontend.
+Or you can use Sisrestore GUI frontend.
 
 == 2. Advance usage ==
 
-There are some ugly rule for SR :
+There are some ugly rule for Sisrestore :
 1. After change the configuration you must run this command :
 
 {{{
 	#sisrestore reload
 }}}
 	
-2. But if you change the target directory or archive mode You must disable and re-enable SR, so SR make new backup archive.
+2. But if you change the target directory or archive mode You must disable and re-enable Sisrestore, so it create new backup archive.
 
 = Configuration =
 
 You can configure Sisrestore in etc/sisrestore.conf
 
-There are 3 point which determine SR to work.
+There are 3 point which determine Sisrestore to work.
 
 == 1. Work mode ==
 
-Work mode mean when the SR restore backup file.
+Work mode mean when the Sisrestore restore backup file.
 There are three work mode :
-# "Work at end" it means SR restore the backup file when you shutdown your computer.
-# "Work at begin" it means SR restore the backup file when you start your computer.
-# "Work on demand" it means SR restore the backup file when you ask SR to restore your archive.
+# "Work at end" it means Sisrestore restore the backup file when you shutdown your computer.
+# "Work at begin" it means Sisrestore restore the backup file when you start your computer.
+# "Work on demand" it means Sisrestore restore the backup file when you ask Sisrestore to restore your archive.
 
-By default SR use wmode 3
+By default Sisrestore use wmode 3
 Set the value of wmode at configuration file with the work mode number. 
 Example for work at begin mode (mode 2) :
 
@@ -104,7 +104,7 @@ There are two archive mode :
 # Raw TAR for speed but bloat in size
 # LZMA for balance in speed and good in size but long compress time
 
-By default SR use amode 1
+By default Sisrestore use amode 1
 Set the value of amode at configuration file with the work mode number.
 Example for Raw Tar archive backup type (mode 1) :
 
@@ -119,7 +119,7 @@ if you dont know what you do!_
 
 == 4. Compatibility ==
 
-I've test Sisretore with some linux distro, it can run with :
+I've test Sisrestore with some linux distro, it can run with :
  # Ubuntu from 10.04 - 12.04.
  # Slackware from 12 above.
  # Fedora 12 and above ( need xmessage ).
