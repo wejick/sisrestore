@@ -2,18 +2,17 @@
 
 ||  Overview  |
 Sisrestore or SR is a pack of shell script to provide a deepfreeze like 
-function in linux desktop.
+functionality on linux desktop.
 It developed specially for Kompudini but it can run on any linux or unix
-system compatible with small
-modification or not.
+system compatible with small or without modification.
 **Any impact to your system is your bussines**
 
 ||  Installing Sisrestore  ||
 
-*Recomended* Before install this script pack you must edit the configuration 
-file. Or you can use gui installer without edit configuration file
+*Recomended* Before installing this script pack you must edit the configuration 
+file, or you can use gui installer without edit configuration file.
 
-Installing this script is simple easy. Execute the setup.sh with "install" 
+Installing this script is simple and easy. Execute the setup.sh with "install" 
 argument to install it and "uninstall" argument to uninstall it. 
 Remember to run it as root user.
 
@@ -37,77 +36,76 @@ Use "gui" option to do it.
 	
 Sisrestore is automatically enabled when you install it.
 
-||  How it work  ||
+||  How it works  ||
 
-SR provide auto restore to specified directory and the effect is just like 
-if you use deepfreeze in windows environment.
-SR will "reset" the specified directory to the same state like when you 
-backup the directory.
-And you can choose when SR reset your directory, and there are 3 choices
-for it. First is when system shutdown, second is when system started and
-last is on demand
-by clicking restore button at System Restore GUI Frontend.
+Sisrestore provide auto restore functionality to specified directory and the
+effect is just like using deepfreeze in windows environment.
+Sisrestore will "reset" the specified directory to the same state like when
+you backup the directory.
+You can choose when Sisrestore reset your directory, there are 3 choices
+for it : First is when system shutdown, second is when system started and
+the last is on demand by clicking restore button at Sisrestore GUI Frontend.
 
-Sistem restore mainly use tar to work but it utilize lzma to make compressed
+Sisrestore mainly uses Tar to work but it utilize lzma to make compressed
 backup archive.
-SR work firstly backup the target with tar. When restore the backup SR use
-rm -rf to "totally" remove the
-target and restore the backup later. So dont forget to check your data
-target before you restore it.
+Sisrestore work by backuping the target with Tar to create an image of 
+current directory state. When restoring the backup Sisrestore will totally
+remove the target directory with  rm -rf command then restore the backup.
+So dont forget to check your data inside target directory before you do restore.
 
-||  How use it  ||
+||  How to use it  ||
 
 | 1. Basic usage |
 
-After install it you can enable SR with this command:
+After installing you can enable Sisrestore with this command:
 
 	#sisrestore enable
  
 With this command you enable Sisrestore to work. 
 
-If you want to disable SR it so easy too :
+If you want to disable Sisrestore it is so easy too :
 	
 	#sisrestore disable
 
 This command will deactive all Sisrestore init script and "delete" the 
 backup file.
 
-The SR will work based on wmode (work mode) value in configuration file.
-You can call the on demand restore function
-with this command :
+Sisrestore will work based on wmode (work mode) value in configuration file.
+
+You can call the on demand restore function with this command :
 
 	#sisrestore restore
 
-Or you can use SR GUI frontend.
+All configuration are accesible throug GUI frontend.
 
 | 2. Advance usage |
 
-There are some ugly rule for SR :
-1. After change the configuration you must run this command :
+There are some ugly rule for Sisrestore :
+1. After changing the configuration you must run this command :
 
 	#sisrestore reload
 	
 2. But if you change the target directory or archive mode You must disable
-and re-enable SR, so SR make new backup archive.
+and re-enable SR, so Sisrestore can make new backup archive.
 
 ||  Configuration  ||
 
-You can configure Sisrestore in /etc/sisrestore.conf
+You can find Sisrestore's configuration file in /etc/sisrestore.conf
 
-There are 3 point which determine SR to work.
+There are 3 point which determine Sisrestore to work.
 
 | 1. Work mode |
 
-Work mode mean when the SR restore backup file.
+Work mode determines when Sisrestore restore the backup file.
 There are three work mode :
-1. "Work at end" it means SR restore the backup file when you shutdown your
-computer.
-2. "Work at begin" it means SR restore the backup file when you start your
-computer.
-3. "Work on demand" it means SR restore the backup file when you ask SR 
-to restore your archive.
+1. "Work at ending" it means Sisrestore restore the backup file when 
+you shutdown your computer.
+2. "Work at begining" it means Sisrestore restore the backup file when
+you start your computer.
+3. "Work on demand" it means Sisrestore restore the backup file when
+you ask Sisrestore to restore your archive.
 
-By default SR use wmode 3
+By default Sisrestore use wmode 3
 Set the value of wmode at configuration file with the work mode number. 
 Example for work at begin mode (mode 2) :
 
@@ -120,7 +118,7 @@ There are two archive mode :
 1. Raw TAR for speed but bloat in size
 2. LZMA for balance in speed and good in size but long compress time
 
-By default SR use amode 1
+By default Sisrestore use amode 1
 Set the value of amode at configuration file with the work mode number.
 Example for Raw Tar archive backup type (mode 1) :
 
@@ -128,7 +126,7 @@ amode=1
 
 | 3. Target |
 
-Specify your target. Be carefull.
+Specify your target directory. Be carefull.
 
 *Attention* Change the mode and target only. Dont touch the other line 
 if you dont know what you do!
